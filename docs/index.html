@@ -252,6 +252,31 @@
     </div>
 
     <div class="section">
+      <h2><span class="icon">&#127908;</span> Audio-Transkription <span class="new-badge">Neu</span></h2>
+      <p>DyBot kann Podcasts, YouTube-Videos und andere Audio-Quellen mit lokaler Whisper-KI transkribieren — komplett auf eigenem Server, keine externen Dienste.</p>
+      <table class="features">
+        <tr><th>Frag einfach...</th><th>Was du bekommst</th></tr>
+        <tr><td class="ask">Transkribiere diesen Podcast: [URL]</td><td>Vollständige Transkription mit Zeitstempeln</td></tr>
+        <tr><td class="ask">Was wird in dieser Folge gesagt? [Podcast-Link]</td><td>Transkript + automatische Speicherung in der Wissensdatenbank</td></tr>
+      </table>
+      <div class="info-box">
+        <strong>Hinweis:</strong> Die Transkription dauert ca. 15–25 Minuten pro Stunde Audio. DyBot meldet sich, wenn das Ergebnis fertig ist. Unterstützt Deutsch und Englisch (automatische Erkennung).
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="icon">&#128218;</span> Wissensdatenbank <span class="new-badge">Neu</span></h2>
+      <p>Alle Transkriptionen und manuell gespeicherte Inhalte landen in einer durchsuchbaren Wissensdatenbank mit Volltextsuche.</p>
+      <table class="features">
+        <tr><th>Frag einfach...</th><th>Was du bekommst</th></tr>
+        <tr><td class="ask">Suche nach "Trainer" in der Wissensdatenbank</td><td>Passende Einträge mit Textausschnitten und Zeitstempeln</td></tr>
+        <tr><td class="ask">Was haben wir über Transfers gespeichert?</td><td>Relevante Zitate aus Podcasts und Artikeln</td></tr>
+        <tr><td class="ask">Zeig mir alle gespeicherten Podcasts</td><td>Liste aller Einträge mit Typ, Dauer und Datum</td></tr>
+        <tr><td class="ask">Speichere diesen Artikel: [Text]</td><td>Manuelles Hinzufügen von Webseiten, Artikeln oder Notizen</td></tr>
+      </table>
+    </div>
+
+    <div class="section">
       <h2><span class="icon">&#128172;</span> Beispiele</h2>
       <p>Hier ein paar Nachrichten, die du DyBot schicken kannst:</p>
       <div class="examples">
@@ -264,6 +289,8 @@
         <div class="example">Gibt es Verletzte?</div>
         <div class="example">Alle Spiele vom Spieltag</div>
         <div class="example">Saisonstatistiken</div>
+        <div class="example">Transkribiere diesen Podcast: [URL]</div>
+        <div class="example">Suche "Trainer" in der Wissensdatenbank</div>
       </div>
     </div>
 
@@ -285,7 +312,7 @@
   </div>
 
   <div class="footer">
-    <div>Daten von <a href="https://www.api-football.com/">API-Football</a> — live bei jeder Anfrage</div>
+    <div>Daten von <a href="https://www.api-football.com/">API-Football</a> — Transkription via <a href="https://github.com/SYSTRAN/faster-whisper">Faster Whisper</a></div>
     <div class="update">Letzte Aktualisierung: Februar 2026</div>
   </div>
 
