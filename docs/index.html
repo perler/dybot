@@ -151,7 +151,31 @@
       border-left-color: var(--scarlet);
     }
 
-    /* YouTube section */
+    /* Template grid */
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+    .template-card {
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      background: var(--gold-bg);
+    }
+    .template-card .t-name {
+      font-weight: 700;
+      color: var(--scarlet);
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+    .template-card .t-desc {
+      font-size: 0.88rem;
+      color: var(--text-light);
+    }
+
+    /* New badge */
     .new-badge {
       display: inline-block;
       background: var(--scarlet);
@@ -195,6 +219,7 @@
     @media (max-width: 600px) {
       .header h1 { font-size: 1.7rem; }
       .examples { grid-template-columns: 1fr; }
+      .template-grid { grid-template-columns: 1fr; }
       .features th, .features td { padding: 0.4rem 0.5rem; font-size: 0.9rem; }
     }
   </style>
@@ -242,34 +267,62 @@
     </div>
 
     <div class="section">
-      <h2><span class="icon">&#127909;</span> YouTube-Zusammenfassungen <span class="new-badge">Neu</span></h2>
-      <p>Schick DyBot einen YouTube-Link und er fasst das Video für dich zusammen — basierend auf den Untertiteln. (Bitte nur für Dynamo Zeugs verwenden, weil es Token kostet und es nicht allzu viele umsonst gibt)</p>
+      <h2><span class="icon">&#128203;</span> Aufstellungsgrafiken <span class="new-badge">Neu</span></h2>
+      <p>Ca. 90 Minuten vor Anpfiff generiert DyBot automatisch eine Aufstellungsgrafik. Du kannst auch jederzeit manuell eine anfordern — in drei Formaten:</p>
+      <div class="template-grid">
+        <div class="template-card">
+          <div class="t-name">&#128221; Beide Teams</div>
+          <div class="t-desc">Standard. Beide Aufstellungen in Gold auf Schwarz — übersichtlich, lesbar, für jeden Spieltag.</div>
+        </div>
+        <div class="template-card">
+          <div class="t-name">&#9899; Spielfeld</div>
+          <div class="t-desc">Trikot-Icons auf grünem Rasen, positioniert nach Formation. Kompaktes Format mit breitem Spielfeld.</div>
+        </div>
+        <div class="template-card">
+          <div class="t-name">&#11035; Nur Dynamo</div>
+          <div class="t-desc">Nur die SGD-Aufstellung, große Schrift. Perfekt für schnellen Überblick vor dem Spiel.</div>
+        </div>
+      </div>
       <table class="features">
         <tr><th>Frag einfach...</th><th>Was du bekommst</th></tr>
-        <tr><td class="ask">Fass dieses Video zusammen: [YouTube-Link]</td><td>Zusammenfassung des Video-Inhalts</td></tr>
-        <tr><td class="ask">Was wird in diesem Video besprochen? [YouTube-Link]</td><td>Inhaltliche Übersicht</td></tr>
+        <tr><td class="ask">Aufstellung [Spieltag / Gegner]</td><td>Grafik mit Startelf und Ersatzbank — Format wählbar</td></tr>
+        <tr><td class="ask">Aufstellung Hannover</td><td>Startelf für das nächste Spiel gegen Hannover 96</td></tr>
       </table>
     </div>
 
     <div class="section">
-      <h2><span class="icon">&#127908;</span> Audio-Transkription <span class="new-badge">Neu</span></h2>
-      <p>DyBot kann Podcasts, YouTube-Videos und andere Audio-Quellen mit lokaler Whisper-KI transkribieren — komplett auf eigenem Server, keine externen Dienste.</p>
+      <h2><span class="icon">&#127909;</span> YouTube &amp; Pressekonferenzen <span class="new-badge">Neu</span></h2>
+      <p>DyBot überwacht den DynamoTV-Kanal automatisch auf neue Videos. Pressekonferenzen und Interviews werden transkribiert und mit klickbaren Zeitsprung-Links aufbereitet.</p>
       <table class="features">
         <tr><th>Frag einfach...</th><th>Was du bekommst</th></tr>
-        <tr><td class="ask">Transkribiere diesen Podcast: [URL]</td><td>Vollständige Transkription mit Zeitstempeln</td></tr>
-        <tr><td class="ask">Was wird in dieser Folge gesagt? [Podcast-Link]</td><td>Transkript + automatische Speicherung in der Wissensdatenbank</td></tr>
+        <tr><td class="ask">Fass dieses Video zusammen: [YouTube-Link]</td><td>Zusammenfassung des Video-Inhalts</td></tr>
+        <tr><td class="ask">Highlights der letzten Pressekonferenz</td><td>Themen mit direkten Zeitsprung-Links ins Video</td></tr>
+        <tr><td class="ask">Was hat Stamm zu Vermeij gesagt?</td><td>Exakter Zeitstempel + Link zur Stelle im Video</td></tr>
       </table>
       <div class="info-box">
-        <strong>Hinweis:</strong> Die Transkription dauert ca. 15–25 Minuten pro Stunde Audio. DyBot meldet sich, wenn das Ergebnis fertig ist. Unterstützt Deutsch und Englisch (automatische Erkennung).
+        <strong>Zeitsprung-Links:</strong> Bei Pressekonferenzen liefert DyBot direkte Links zu jedem Thema — z.&nbsp;B. <em>Kader-News</em> &#8594; 0:33, <em>Hannover-Analyse</em> &#8594; 1:07. Ein Klick, schon bist du an der richtigen Stelle.
       </div>
     </div>
 
     <div class="section">
-      <h2><span class="icon">&#128218;</span> Wissensdatenbank <span class="new-badge">Neu</span></h2>
-      <p>Alle Transkriptionen und manuell gespeicherte Inhalte landen in einer durchsuchbaren Wissensdatenbank mit Volltextsuche.</p>
+      <h2><span class="icon">&#127908;</span> Sprachnachrichten &amp; Transkription <span class="new-badge">Neu</span></h2>
+      <p>Einfach eine Sprachnachricht schicken — DyBot transkribiert sie mit lokaler Whisper-KI und antwortet direkt auf den Inhalt. Kein externes Dienst, alles auf eigenem Server.</p>
       <table class="features">
         <tr><th>Frag einfach...</th><th>Was du bekommst</th></tr>
-        <tr><td class="ask">Suche nach "Trainer" in der Wissensdatenbank</td><td>Passende Einträge mit Textausschnitten und Zeitstempeln</td></tr>
+        <tr><td class="ask">&#127908; [Sprachnachricht schicken]</td><td>DyBot versteht den Inhalt und antwortet darauf</td></tr>
+        <tr><td class="ask">Transkribiere diesen Podcast: [URL]</td><td>Vollständige Transkription, gespeichert in der Wissensdatenbank</td></tr>
+      </table>
+      <div class="info-box">
+        <strong>Hinweis:</strong> Sprachnachrichten werden sofort verarbeitet (1–3 Sek. für kurze Nachrichten). Längere Podcast-Transkriptionen dauern ca. 15–25 Min. pro Stunde Audio — DyBot meldet sich, wenn fertig.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="icon">&#128218;</span> Wissensdatenbank</h2>
+      <p>Alle Transkriptionen, Presseartikel und manuell gespeicherte Inhalte landen in einer durchsuchbaren Wissensdatenbank mit Volltextsuche.</p>
+      <table class="features">
+        <tr><th>Frag einfach...</th><th>Was du bekommst</th></tr>
+        <tr><td class="ask">Suche nach „Trainer" in der Wissensdatenbank</td><td>Passende Einträge mit Textausschnitten und Zeitstempeln</td></tr>
         <tr><td class="ask">Was haben wir über Transfers gespeichert?</td><td>Relevante Zitate aus Podcasts und Artikeln</td></tr>
         <tr><td class="ask">Zeig mir alle gespeicherten Podcasts</td><td>Liste aller Einträge mit Typ, Dauer und Datum</td></tr>
         <tr><td class="ask">Speichere diesen Artikel: [Text]</td><td>Manuelles Hinzufügen von Webseiten, Artikeln oder Notizen</td></tr>
@@ -277,7 +330,7 @@
     </div>
 
     <div class="section">
-      <h2><span class="icon">&#128240;</span> Presseschau <span class="new-badge">Neu</span></h2>
+      <h2><span class="icon">&#128240;</span> Presseschau</h2>
       <p>DyBot liefert täglich eine automatische Presseschau zu Dynamo Dresden — morgens und abends. Artikel aus regionalen und überregionalen Medien werden gesammelt, gespeichert und kompakt zusammengefasst.</p>
       <table class="features">
         <tr><th>Frag einfach...</th><th>Was du bekommst</th></tr>
@@ -301,9 +354,11 @@
         <div class="example">Zeig mir den Kader</div>
         <div class="example">Gibt es Verletzte?</div>
         <div class="example">Alle Spiele vom Spieltag</div>
-        <div class="example">Saisonstatistiken</div>
+        <div class="example">Aufstellung Hannover</div>
+        <div class="example">Highlights der letzten Pressekonferenz</div>
+        <div class="example">&#127908; [Sprachnachricht schicken]</div>
         <div class="example">Transkribiere diesen Podcast: [URL]</div>
-        <div class="example">Suche "Trainer" in der Wissensdatenbank</div>
+        <div class="example">Suche „Trainer" in der Wissensdatenbank</div>
       </div>
     </div>
 
@@ -321,7 +376,6 @@
       <p>DyBot antwortet in der Sprache, in der du schreibst — <strong>Deutsch</strong> oder <strong>Englisch</strong>.</p>
     </div>
 
-
     <div class="section">
       <h2><span class="icon">&#128276;</span> Was läuft wo?</h2>
       <p>Nicht alle Features funktionieren überall. Hier ist der Unterschied:</p>
@@ -333,8 +387,10 @@
         <tr><td>Ergebnisse &amp; Spielplan</td><td class="ask">Wann spielt Dynamo? / Letzte 5 Spiele</td></tr>
         <tr><td>Tabelle &amp; Statistiken</td><td class="ask">Tabelle / Torjäger</td></tr>
         <tr><td>Kader &amp; Transfers</td><td class="ask">Kader / Verletzte?</td></tr>
+        <tr><td>Aufstellungsgrafiken</td><td class="ask">Aufstellung Hannover — Format wählbar</td></tr>
         <tr><td>Wissensdatenbank</td><td class="ask">Suche „Trainer" in der Wissensdatenbank</td></tr>
         <tr><td>YouTube-Zusammenfassung</td><td class="ask">Fass dieses Video zusammen: [Link]</td></tr>
+        <tr><td>Sprachnachrichten</td><td class="ask">&#127908; Sprachnachricht schicken</td></tr>
         <tr><td>Audio-Transkription</td><td class="ask">Transkribiere diesen Podcast: [URL]</td></tr>
       </table>
 
@@ -344,7 +400,7 @@
         <tr><th>Feature</th><th>Wann</th></tr>
         <tr><td>&#128240; Presseschau</td><td>Täglich 7:00 &amp; 17:00 Uhr</td></tr>
         <tr><td>&#127908; Podcast-Zusammenfassungen</td><td>Automatisch bei neuen Folgen (alle 6h geprüft)</td></tr>
-        <tr><td>&#127909; YouTube-Highlights</td><td>Automatisch bei neuen Pressekonferenzen &amp; Interviews</td></tr>
+        <tr><td>&#127909; YouTube / PK-Highlights</td><td>Automatisch bei neuen Videos (alle 2h geprüft) — mit Zeitsprung-Links</td></tr>
         <tr><td>&#128203; Aufstellungs-Grafiken</td><td>Ca. 90 Min. vor Anpfiff</td></tr>
       </table>
       <div class="info-box red">
@@ -352,12 +408,11 @@
       </div>
     </div>
 
-
   </div>
 
   <div class="footer">
     <div>Daten von <a href="https://www.api-football.com/">API-Football</a> — Transkription via <a href="https://github.com/SYSTRAN/faster-whisper">Faster Whisper</a></div>
-    <div class="update">Letzte Aktualisierung: Februar 2026</div>
+    <div class="update">Letzte Aktualisierung: 20. Februar 2026</div>
   </div>
 
 </body>
